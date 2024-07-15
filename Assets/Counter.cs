@@ -13,7 +13,7 @@ public class Counter : MonoBehaviour
     void Start()
     {
         GameIsActive = true;
-        counter = 3;
+        counter = 60;
     }
 
     void Update()
@@ -27,15 +27,15 @@ public class Counter : MonoBehaviour
         if(GameIsActive)
         {
             counter -= Time.deltaTime;
-            textCounter.text = counter.ToString("f2");
+            textCounter.text = "Czas: " + counter.ToString("f2");
 
-            if (counter <= 0)
+            if (counter > 5)
             {
-                textCounter.color = Color.red;
+                textCounter.color = Color.black;
             }
             else
             {
-                textCounter.color = Color.white;
+                textCounter.color = Color.red;
             }
         }
     }

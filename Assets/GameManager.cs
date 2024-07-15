@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] Text textPoint;
-    [SerializeField] Text score;
     [SerializeField] Counter counter;
     [SerializeField] Image imgViewFinder;
 
@@ -17,28 +17,17 @@ public class GameManager : MonoBehaviour
     {
         points = 0;
         DisplayAmountEnemies();
-        ShowScore();
     }
 
-    void Update()
+    void LateUpdate()
     {
-        ShowScore();
-    }
-
-    private void LateUpdate()
-    {
-        imgViewFinder.GetComponent<RectTransform>().anchoredPosition = Input.mousePosition;
-    }
-
-    void ShowScore()
-    {
-        if(!counter.IsGameActive())
+        if (counter.IsGameActive())
         {
-            imgViewFinder.GetComponent<Image>().enabled = false;
-            float counterValue = counter.GetCounter();
-
-            score.text = "1. Iloœæ zabitych cweli: " + points;
-            score.text += "\n2. Czas gry: " + counterValue.ToString("f2");
+            imgViewFinder.GetComponent<RectTransform>().anchoredPosition = Input.mousePosition;
+        }
+        else
+        {
+            imgViewFinder.gameObject.SetActive(false);
         }
     }
 
@@ -46,8 +35,13 @@ public class GameManager : MonoBehaviour
     {
         if (counter.IsGameActive())
         {
-            textPoint.text = "Iloœæ Zabitych Cweli: " + points;
+            textPoint.text = "Iloœæ Uszczelonych Zaj¹ców: " + points;
         }
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void AddPoint()

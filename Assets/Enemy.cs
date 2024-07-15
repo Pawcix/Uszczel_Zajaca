@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
+    [SerializeField] AudioClip deathSound;
     [SerializeField] Counter counter;
 
     void Start()
@@ -13,17 +14,23 @@ public class Enemy : MonoBehaviour
         SetPosition();
     }
 
+    void SetPosition()
+    {
+        gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(Random.Range(0, 1621), Random.Range(0, 681));
+    }
+
+    void DeathSound()
+    {
+        AudioSource.PlayClipAtPoint(deathSound, transform.position);
+    }
+
     public void AfterClick()
     {
         if (counter.IsGameActive())
         {
             SetPosition();
+            DeathSound();
             gameManager.AddPoint();
         }
-    }
-
-    void SetPosition()
-    {
-        gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(Random.Range(0, 1621), Random.Range(0, 781));
     }
 }

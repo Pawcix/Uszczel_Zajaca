@@ -7,6 +7,8 @@ public class Counter : MonoBehaviour
 {
     [SerializeField] Text textCounter;
 
+    public GameManager gameManager;
+
     float counter;
     bool GameIsActive;
 
@@ -24,10 +26,13 @@ public class Counter : MonoBehaviour
 
     void CountDownTime()
     {
-        if(GameIsActive)
+        if (GameIsActive)
         {
             counter -= Time.deltaTime;
-            textCounter.text = "Czas: " + counter.ToString("f2");
+            textCounter.text = "Czas: " + counter.ToString("0");
+
+            gameManager.GetComponent<GameManager>().ShotSoundEffect(0.15f);
+
 
             if (counter > 5)
             {

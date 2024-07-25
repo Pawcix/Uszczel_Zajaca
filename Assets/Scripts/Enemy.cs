@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] ParticleSystem deathParticleSystem;
     [SerializeField] GameManager gameManager;
     [SerializeField] AudioClip deathSound;
     [SerializeField] Counter counter;
@@ -16,7 +17,7 @@ public class Enemy : MonoBehaviour
 
     void SetPosition()
     {
-        gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(Random.Range(0, 1621), Random.Range(0, 681));
+        gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(Random.Range(0, 1621), Random.Range(0, 651));
     }
 
     void DeathSound()
@@ -24,12 +25,25 @@ public class Enemy : MonoBehaviour
         AudioSource.PlayClipAtPoint(deathSound, transform.position);
     }
 
+    void DeathPartlicleSystem()
+    {
+        Vector3 newPosition = gameObject.transform.position;
+        newPosition.z = 20;
+
+        ParticleSystem actionParticleSystem = Instantiate(deathParticleSystem);
+        actionParticleSystem.gameObject.transform.position = newPosition;
+        actionParticleSystem.Play();
+        Destroy(actionParticleSystem.gameObject, 2f);
+    }
+
     public void AfterClick()
     {
         if (counter.IsGameActive())
         {
-            SetPosition();
+            DeathPartlicleSystem();
+            
             DeathSound();
+            SetPosition();
             gameManager.AddPoint();
         }
     }

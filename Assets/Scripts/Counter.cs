@@ -31,7 +31,7 @@ public class Counter : MonoBehaviour
             counter -= Time.deltaTime;
             textCounter.text = "Czas: " + counter.ToString("0");
 
-            gameManager.GetComponent<GameManager>().ShotSoundEffect(0.15f);
+            gameManager.GetComponent<GameManager>().ShotSoundEffect(0.1f);
 
 
             if (counter > 5)

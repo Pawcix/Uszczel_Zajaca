@@ -220,12 +220,12 @@ RectTransform:
   - {fileID: 1889333603}
   - {fileID: 297749715}
   - {fileID: 362390999}
-  - {fileID: 2057974091}
   - {fileID: 131338452}
   - {fileID: 2128752015}
   - {fileID: 43251735}
   - {fileID: 501956138}
   - {fileID: 1521046028}
+  - {fileID: 2057974091}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -394,7 +394,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 131338451}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -461,6 +461,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: CameraShake, Assembly-CSharp
+        m_MethodName: ShakeIt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &131338454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,9 +523,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eab98e95b9f01414bbb358c195db5486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathParticleSystem: {fileID: 8063110357161588250, guid: 6c0b8e835c65fc14093b294fdbb9ea08, type: 3}
   gameManager: {fileID: 1454545644}
   deathSound: {fileID: 8300000, guid: d437cafe76af91f49b6497a81ff9c12b, type: 3}
   counter: {fileID: 362391002}
+  mainCamera: {fileID: 519420031}
 --- !u!1 &165847211
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,9 +586,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 5180183eb12a9334eadce95cfb30fc67, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 3
     m_MaxSize: 40
@@ -632,9 +646,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 5180183eb12a9334eadce95cfb30fc67, type: 3}
     m_FontSize: 50
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 50
@@ -644,7 +658,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: < Points >
+  m_Text: "Ilosc Uszczelonych Zajac\xF3w: 00"
 --- !u!222 &297749714
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -670,7 +684,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 573, y: -30}
-  m_SizeDelta: {x: 845.96, y: 70}
+  m_SizeDelta: {x: 853.8, y: 70}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &362390998
 GameObject:
@@ -708,7 +722,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 115, y: 475}
-  m_SizeDelta: {x: 281.19, y: 70}
+  m_SizeDelta: {x: 298.83, y: 70}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &362391000
 MonoBehaviour:
@@ -731,9 +745,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 5180183eb12a9334eadce95cfb30fc67, type: 3}
     m_FontSize: 50
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 50
@@ -743,7 +757,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: < Counter >
+  m_Text: 'Czas: 00'
 --- !u!222 &362391001
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1127,7 +1141,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 5180183eb12a9334eadce95cfb30fc67, type: 3}
     m_FontSize: 30
     m_FontStyle: 1
     m_BestFit: 1
@@ -1198,7 +1212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+  m_Color: {r: 0.9150943, g: 0.55967957, b: 0.15970986, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1385,9 +1399,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -70}
+  m_AnchoredPosition: {x: 0, y: -78.57202}
   m_SizeDelta: {x: 0, y: -120}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0.5714339}
 --- !u!114 &1889333604
 MonoBehaviour:
   m_ObjectHideFlags: 0

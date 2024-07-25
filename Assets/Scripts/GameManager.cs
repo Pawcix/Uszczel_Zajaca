@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     {
         if (counter.IsGameActive())
         {
-            textPoint.text = "Iloœæ Uszczelonych Zaj¹ców: " + points;
+            textPoint.text = "Ilosc Uszczelonych Zajaców: " + points;
         }
     }
 

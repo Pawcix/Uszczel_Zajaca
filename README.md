@@ -6,7 +6,7 @@
 **Uszczel Zająca** is a simple and fun game in which the player has to shoot a real hare and not some fake one, You have to fit in the time or else you will fail in your mission to save the world. The more you get rid of this nastiness, the safer the world will be. Enjoy playing :D
 
 ## Platforms
-**Available:** 💻PC (Only)
+**Available:** 💻PC | 📞Mobile
 
 ## Link:
 **Link to my game:** https://pawel-szatanik.itch.io/uszczel-zajca
